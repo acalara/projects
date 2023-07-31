@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <form action="/" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="product" name="product" placeholder="Product Link" type="text">
+        </div>
+        <div class="mb-3">
+            <select name="duration">
+                <option value="7">1 Week</option>
+                <option value="30">1 Month</option>
+                <option value="365">1 Year</option>
+            </select>
+        </div>
+        <button type="submit" class="button">Set Alert</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <form action="/history" method="post">
+        <div class="mb-3">
+            <select name="product">
+                {% for alert in alerts %}
+                    <option value={{ alert["id"] }}>{{ alert["name"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="button">See History</button>
+    </form>
+    {% for title in info %}
+        <h1>{{ title["name"] }} | Start: {{ title["start_date"] }} | End: {{ title["end_date"] }}</h1>
+    {% endfor %}
+    <table class="table table-dark tbl-container bdr">
+        <thead>
+            <tr>
+                <th>Price</th>
+                <th>Date/Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate through history checks -->
+            {% for check in history %}
+                <tr>
+                    <td>{{ check["price"] | usd }}</td>
+                    <td>{{ check["date"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% for edit in info %}
+        <form action="/history" method="post">
+            <input type="date" id="date" name="date" value={{ edit["end_date"] }} min={{ date_now }}>
+            <input name="id" type="hidden" value={{ edit["id"] }}>
+            <button type="submit" class="button">Update Alert</button>
+        </form>
+        <form action="/history" method="post">
+            <input name="cancel" type="hidden" value="cancel">
+            <input name="id" type="hidden" value={{ edit["id"] }}>
+            <button type="submit" class="button cancel" onclick="return confirm('Are you sure you want to cancel this alert?')">Cancel Alert</button>
+        </form>
+    {% endfor %}
+
+{% endblock %}

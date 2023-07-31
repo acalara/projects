@@ -1,0 +1,8 @@
+CS50
+Flask
+Flask-Session
+Requests
+Selenium
+Datetime
+smtplib
+MIMEText

@@ -1,0 +1,55 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+body {
+    background-color:#010001;
+}
+
+.button {
+    transition-duration: 0.4s;
+    background-color:#f4a9bc;
+    color:white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 6px;
+}
+  
+.button:hover {
+    background-color:white ;
+    color: #010001;
+    border: 2px solid #f4a9bc;
+    box-shadow: 0 0 15px #f4a9bc;
+}
+
+.cancel {
+    margin-top: 10px;
+}
+
+.alert {
+    background-color: #f4a9bc;
+    color:white;
+}
+
+h1 {
+    color:white;
+    font-size: 25px;
+    margin-top:10px;
+}
+
+.bdr {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.tbl-container {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
